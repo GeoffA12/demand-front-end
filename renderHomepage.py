@@ -16,7 +16,7 @@ class HomePageHandler(BaseHTTPRequestHandler):
         path = self.path
         try: 
             """Respond to a GET request."""
-            homepage = open("C:\\Users\\Zoe\\Documents\\Spring 2020\\Software Engineering\\webpage\\landingPage\\team22se.html", "rb")
+            homepage = open("C:\\Users\\Zoe\\Documents\\Spring 2020\\Software Engineering\\Project\\landingpage\\team22se.html", "rb")
             img_pharmacy = open("C:\\Users\\Zoe\\Documents\\Spring 2020\\Software Engineering\\webpage\\note.png", "rb")
             self.send_response(200)
             self.send_header("Content-type", "text/html")
