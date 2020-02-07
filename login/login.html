@@ -1,82 +1,144 @@
 <!doctype html>
 <html lang="en">
-
+	
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>WeGo Services</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <style media="screen">
-        body {
-            background-color: lightsteelblue;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        let sendPostRequest = () =>
+		{
+            const username = {"username" : document.getElementById("un").value};
+            const password = {"password" : document.getElementById("pwd").value};
+            const options =
+			{
+                method: "POST",
+                headers:
+				{
+                    'Content-Type': "application/json"
+                },
+                body: JSON.stringify(username)
+            }
 
-        button {
-            cursor: pointer;
-        }
+			// HAVE TO FETCH THE "/loginPage" FILE IN ORDER TO WORK
+            fetch("/login", options).then(function(response)
+			{
+                console.log(response.status);
 
-        .imgHeader {
-            text-align: center;
-            padding: 15px;
-        }
+                if (response.status == 200)
+				{
+                    // Make sure you use the full http address here. 
+                    //window.location.replace("ENTER YOUR URL REDIRECT ADDRESS HERE");
+                    window.location.replace("http://www.wegoteam22.com");
+                }
+            });
+		}
+    </script>
 
-        img {
-            height: 100px;
-        }
-    </style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<br>
+	<title>WeGo Services</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<style media="screen">
+	body {
+		background-color: white;
+	}
+
+	button {
+		cursor: pointer;
+	}
+
+	.imgHeader {
+		text-align: center;
+		padding: 50%;
+	}
+
+	img {
+		height: 100px;
+	}
+
+	.rounded-circle {
+		background-color: grey;
+	}
+
+	/* Sets the margin to $spacer * 1.5- used to make app backgrounds circular */
+	.m-4 {
+  		margin: $spacer !important;
+	}
+
+	/* Sets the padding to $spacer * 3- also used to make app backgrounds circular */
+	.p-5 {
+		padding: $spacer !important;
+	}
+
+	</style>
 </head>
 
 <body>
-    <div class="row">
-        <div class="col" style="text-align: center">
-            <h1>WeGo Services</h1>
-            <h3>On-Demand Autonomous Delivery Services!</h3>
+	<div class="container-fluid bg-info" style= "text-align: center">
+		<h1>WeGo Services</h1>
+		<br>
+		<h4>Autonomous delivery & logistics services</h4>
+		<br><br>
+	</div>
+
+	<div class="container">
+	<div class="row">
+		<div class="col imgHeader rounded-circle m-4 p-5">
+			<img src="file:///C:/Users/Zoe/Documents/Spring 2020/Software Engineering/Project/landing/assets/note.png" alt="">
+			<h4>RX Delivery</h4>
+		</div>
+
+		<div class="col imgHeader rounded-circle m-4 p-5">
+			<img src="file:///C:/Users/Zoe/Documents/Spring 2020/Software Engineering/Project/landing/assets/disco-ball.png" alt="">
+			<h4>Events</h4>
+		</div>
+
+		<!-- <div class="w-100"></div> -->
+		<div class="col imgHeader rounded-circle m-4 p-5">
+			<img src="file:///C:/Users/Zoe/Documents/Spring 2020/Software Engineering/Project/landing/assets/washer.png" alt="">
+			<h4>Laundry</h4>
+		</div>
+
+		<div class="col imgHeader rounded-circle m-4 p-5">
+			<img src="file:///C:/Users/Zoe/Documents/Spring 2020/Software Engineering/Project/landing/assets/coffee-machine.png" alt="">
+			<h4>Coffee</h4>
+		</div>
+	</div>
+
+	<br>
+	<div class="container" style="text-align: center">
+		<form action="/dashboard" method="POST">
+		<div class="row justify-content-center">
+			<h4 style="text-align: center">Get Started</h4>
+			<div class="w-100">
+			</div>
+		</div>
+		<br>
+		<div class="row justify-content-center">
+			Username: <input type="text" name="username">
+		</div>
+		<br>
+		<!--<div class="col"> -->
+		<div class="row justify-content-center">
+			Password: <input type="password" name="password">
         </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col imgHeader">
-                <h2>RX Delivery</h2>
-                <img src="../thumbs-up.png" alt="">
-            </div>
-            <div class="col imgHeader">
-                <h2>Event Delivery</h2>
-                <img src="../thumbs-up.png" alt="">
-            </div>
-            <div class="w-100"></div>
-            <div class="col imgHeader">
-                <h2>Laundry</h2>
-                <img src="../thumbs-up.png" alt="">
-            </div>
-            <div class="col imgHeader">
-                <h2>Coffee</h2>
-                <img src="../thumbs-up.png" alt="">
-            </div>
-        </div>
-    </div>
+        <br>
+		<div class="row justify-content-center">
+			<input type="submit" value="Submit">
+		</div>
+		</form>
+	</div>
+	<br>
+	<br>
+	<br>
+	<script src="landingPage.js"></script>
 
-
-    <div class="container">
-        <h4 style="text-align: center">Login</h4>
-        <div class="row justify-content-center">
-            <form class="" action="index.html" method="post">
-                <div class="col">
-                    Username:
-                    <input type="text" name="" value="">
-                </div>
-                <div class="col">
-                    Password:
-                    <input type="password" name="" value="">
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script scr="login.js"></script>
-
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
 </body>
 
 </html>
