@@ -7,37 +7,38 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
-        let sendPostRequest = () =>
-		{
-			console.log("attemping to fench");
-            //const username = {"username" : document.getElementById("user_name").value};
-            //const password = {"password" : document.getElementById("user_password").value};
-			const username = {"username" : "name of user"};
-            const password = {"password" : "passcode for user"};
+        function sendPostRequest() {
+			const login = 
+			{
+				"username" : document.getElementById("user_name").value,
+				"password" : document.getElementById("user_password").value
+			};
             
 			const options =
 			{
-                method: "POST",
+                method: 'POST',
                 headers:
 				{
-                    'Content-Type': "application/json"
-                },
-                body: JSON.stringify(username)
-            }
+                    'Content-Type': 'application/json'
+				},
+				mode: 'no-cors',
+                body: JSON.stringify(login)
+			}
+			console.log(options);
 
 			// HAVE TO FETCH THE "/loginPage" FILE IN ORDER TO WORK
-            fetch("/login", options).then(function(response)
-			{
-                console.log(response.status);
+            fetch('http://localhost:4001', options).then(function(response) {
+                console.log(response);
 
                 if (response.status == 200)
 				{
                     // Make sure you use the full http address here. 
                     //window.location.replace("ENTER YOUR URL REDIRECT ADDRESS HERE");
 					//window.location.replace("http://www.wegoteam22.com");
-					
-                }
-            });
+					console.log('two hundo!!');
+				}
+				return response.json;
+			});
 		}
     </script>
 
@@ -115,7 +116,7 @@
 
 	<br>
 	<div class="container" style="text-align: center">
-		<form onsumbit="sendPostRequest()" >
+		<form onsubmit="sendPostRequest()" >
 		<div class="row justify-content-center">
 			<h4 style="text-align: center">Get Started</h4>
 			<div class="w-100">
@@ -139,7 +140,7 @@
 	<br>
 	<br>
 	<br>
-	<script src="landingPage.js"></script>
+	<!--<script src="../landing/landing.js"></script> -->
 
 	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
