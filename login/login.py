@@ -2,14 +2,21 @@ import http.server
 from http.server import BaseHTTPRequestHandler
 import json
 import urllib.parse
+import mysql.connector as mariadb
 
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
+   
     def do_POST(self):
         path = self.path
         print("post")
-        if path == "/":       
+        if path == "/":  
+            mariadb_connection = mariadb.connect(user='root', password='ShinyNatu34', database='team22demand')
+            cursor = mariadb_connection.cursor()
+            rows = cursor.fetchall()
+            username_list = [x[0] for x in rows]
+     
             length = int(self.headers['content-length'])            
             body = self.rfile.read(length)
             
@@ -19,9 +26,33 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             # To access a specific key from the dictionary:         
             print(dictionary)    
             username = dictionary['username']
-            password = dictionary['password']
-            self.send_response(200)     
+            password = dictionary['password']    
             self.end_headers()
+
+        
+            mariadb_connection = mariadb.connect(user='root', password='ShinyNatu34', database='team22demand')
+            cursor = mariadb_connection.cursor()
+            testUser = "geoff"
+            cursor.execute("SELECT username FROM customers")
+
+            rows = cursor.fetchall()
+            username_list = [x[0] for x in rows]
+            # check all usernames in the table to make sure we're keeping our usernames unique
+            userAlreadyExists = False
+            for x in username_list:
+	            print(x)
+	        if (testUser == username):
+		        userAlreadyExists = True
+		            break
+            response = None
+            # We'll send a 401 code back to the client if the user hasn't registered in our database
+            if (userAlreadyExists):
+	            response = 200
+            else:
+	            response = 401 
+            print(response)
+
+            self.send_response(response)
                       
             responseDict = {}            
             responseDict['success'] = True            
