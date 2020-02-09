@@ -24,6 +24,40 @@
             height: 100px;
         }
     </style>
+    <script>
+        let sendRegisrationForm = () => {
+            let newEmail = document.getElementById('email').value;
+            let newUsername = document.getElementById('username').value;
+            let newPassword = document.getElementById('password').value;
+            let newPhoneNumber = document.getElementById('phoneNum').value;
+            if (newEmail.length == 0 || newUsername.length == 0 || newPassword.length == 0) {
+                alert("You missed either a password, email, or username input.");
+                return;
+            }
+            const regisration = {
+                "email" : newEmail,
+                "password" : newUsername,
+                "username" : newUsername,
+                "phoneNumber" : newPhoneNumber
+            }
+            const options = {
+                method: "POST",
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                mode: 'no-cors',
+                body: JSON.stringify(regisration)
+            }
+            fetch("http://localhost:4001", options).then(function(response) {
+                if (response == 200) {
+                    window.location.replace("https://team22.demand.softwareengineeringii.com/dashboard.html");
+                }
+                else {
+                    alert("You already have an account! Go to the login page to login.");
+                }
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -62,56 +96,26 @@
                 <table class="registerTable" id="registerTableLeft">
                     <tr>
                         <td>
-                            <span>Full Name</span><br>
-                            <input type="text" name="fullName" value="">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
                             <span>E-mail:</span><br>
-                            <input type="text" name="email" value="">
+                            <input type="email" id="email">
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <span>Username:</span><br>
-                            <input type="text" name="username" value="">
+                            <input type="text" id="username">
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <span>Password:</span><br>
-                            <input type="password" name="password" value="">
+                            <input type="password" id="password">
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <span>Phone Number:</span><br>
-                            <input type="text" name="phoneNum" value="">
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-        <div class="col" style="text-align: left">
-            <form class="registerForm" id="registerFormRight" action="index.html" method="post">
-                <table class="registerTable" id="registerTableRight">
-                    <tr>
-                        <td>
-                            <span>Credit Card Number:</span><br>
-                            <input type="text" name="ccNumber" value="">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>CVV:&nbsp&nbsp</span><br>
-                            <input type="text" name="cvv" value="" width="3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>Expiration Date:&nbsp&nbsp</span><br>
-                            <input type="date" name="expDate" min="">
+                            <input type="text" id="phoneNum">
                         </td>
                     </tr>
                 </table>
@@ -122,7 +126,7 @@
     <div class="container">
         <div class="row">
             <div class="col align-self-center" style="text-align: center">
-                <button onclick="doSomething()" id="submit" type="button" name="button">Create Account</button>
+                <button onclick="sendRegisrationForm()" id="submit" type="button" name="button">Create Account</button>
             </div>
         </div>
     </div>
