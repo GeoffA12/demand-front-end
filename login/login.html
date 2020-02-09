@@ -8,6 +8,10 @@
     <title>Document</title>
     <script>
         function sendPostRequest() {
+			if (document.getElementById("user_name").value.length == 0 || document.getElementById("user_password").value.length == 0) {
+				alert("You need to enter a username and password");
+				return;
+			}
 			const login = 
 			{
 				"username" : document.getElementById("user_name").value,
@@ -26,18 +30,15 @@
 			}
 			console.log(options);
 
-			// HAVE TO FETCH THE "/loginPage" FILE IN ORDER TO WORK
             fetch('http://localhost:4001', options).then(function(response) {
-                console.log(response);
 
                 if (response.status == 200)
 				{
-                    // Make sure you use the full http address here. 
-                    //window.location.replace("ENTER YOUR URL REDIRECT ADDRESS HERE");
-					//window.location.replace("http://www.wegoteam22.com");
-					console.log('two hundo!!');
+                    window.location.replace("https://team22.demand.softwareengineeringii.com/dashboard.html");
 				}
-				return response.json;
+				else {
+					alert("You don't have an account yet! Go to the regisration page.");
+				}
 			});
 		}
     </script>
