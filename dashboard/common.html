@@ -7,40 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
-        function sendPostRequest() {
-			if (document.getElementById("user_name").value.length == 0 || document.getElementById("user_password").value.length == 0) {
-				alert("You need to enter a username and password");
-				return;
-			}
-			const login = 
-			{
-				"username" : document.getElementById("user_name").value,
-				"password" : document.getElementById("user_password").value
-			};
-            
-			const options =
-			{
-                method: 'POST',
-                headers:
-				{
-                    'Content-Type': 'application/json'
-				},
-				mode: 'no-cors',
-                body: JSON.stringify(login)
-			}
-			console.log(options);
-
-            fetch("https://team22.demand.softwareengineeringii.com/loginHandler", options).then(function(response) {
-	
-                if (response.status == 200)
-				{
-                    window.location.replace("https://team22.demand.softwareengineeringii.com/dashboard/common.html");
-				}
-				else {
-					alert("You don't have an account yet! Go to the regisration page.");
-				}
-			});
-		}
+        function printMessage()
+        {
+            var paragraph = document.getElementById("not_implemented");
+            paragraph.style.color = "red";
+            paragraph.textContent = "";
+            paragraph.textContent += "NOT IMPLEMENTED YET";
+        }
     </script>
 
 	<meta charset="utf-8">
@@ -94,54 +67,59 @@
 	<div class="container">
 	<div class="row">
 		<div class="col imgHeader rounded-circle m-4 p-5">
-			<img src="../landing/assets/note.png" alt="">
-			<h4>RX Delivery</h4>
+			<img id="RXDelivery" onclick="printMessage()" src="/landing/assets/note.png" alt="">
+            <!--CHANGE PATH NAME-->
+            <!--../landing/assets/note.png-->
+			<h4 onclick="printMessage()">RX Delivery</h4>
 		</div>
 
 		<div class="col imgHeader rounded-circle m-4 p-5">
-			<img src="../landing/assets/disco-ball.png" alt="">
-			<h4>Events</h4>
+			<img id="Events" onclick="printMessage()" src="/landing/assets/disco-ball.png" alt="">
+            <!--CHANGE PATH NAME-->
+            <!--../landing/assets/disco-ball.png-->
+			<h4 onclick="printMessage()">Events</h4>
 		</div>
 
 		<!-- <div class="w-100"></div> -->
 		<div class="col imgHeader rounded-circle m-4 p-5">
-			<img src="../landing/assets/washer.png" alt="">
-			<h4>Laundry</h4>
+			<img id="Laundry" onclick="printMessage()" src="/landing/assets/washer.png" alt="">
+            <!--CHANGE PATH NAME-->
+            <!--../landing/assets/washer.png-->
+			<h4 onclick="printMessage()">Laundry</h4>
 		</div>
 
 		<div class="col imgHeader rounded-circle m-4 p-5">
-			<img src="../landing/assets/coffee-machine.png" alt="">
-			<h4>Coffee</h4>
+			<img id="Coffee" onclick="printMessage()" src="/landing/assets/coffee-machine.png" alt="">
+            <!--CHANGE PATH NAME-->
+            <!--../landing/assets/coffee-machine.png-->
+			<h4 onclick="printMessage()">Coffee</h4>
 		</div>
 	</div>
 
+    <p id="not_implemented" STYLE="position:absolute; TOP:600px; LEFT:550px;">  </p>
+    
+
 	<br>
 	<div class="container" style="text-align: center">
-		<form onsubmit="sendPostRequest()" >
 		<div class="row justify-content-center">
-			<h4 style="text-align: center">Get Started</h4>
+			<h4 style="text-align: center">Here are our most popular services!</h4>
 			<div class="w-100">
 			</div>
-		</div>
-		<br>
-		<div class="row justify-content-center">
-			Username: <input type="text" id="user_name" name="username">
-		</div>
-		<br>
-		<!--<div class="col"> -->
-		<div class="row justify-content-center">
-			Password: <input type="password" id = "user_password" name="password">
-        </div>
-        <br>
-		</form>
-		<div class="row justify-content-center">
-			<button id="submitButton" onclick="sendPostRequest()">Submit</button>
+			<br>
+			<form action="/login" method="POST">
+			<div class="row justify-content-center">
+			</div>
+			<br>
+			<div class="row justify-content-center">
+			</div>
+			</form>
+			<br>
+			<br>
 		</div>
 	</div>
 	<br>
 	<br>
 	<br>
-	<!--<script src="../landing/landing.js"></script> -->
 
 	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

@@ -36,7 +36,7 @@
             }
             const regisration = {
                 "email" : newEmail,
-                "password" : newUsername,
+                "password" : newPassword,
                 "username" : newUsername,
                 "phoneNumber" : newPhoneNumber
             }
@@ -48,14 +48,17 @@
                 mode: 'no-cors',
                 body: JSON.stringify(regisration)
             }
-            fetch("http://localhost:4001", options).then(function(response) {
-                if (response == 200) {
-                    window.location.replace("https://team22.demand.softwareengineeringii.com/dashboard.html");
+            fetch("https://team22.demand.softwareengineeringii.com/registerHandler", options).then(function(response) {
+		console.log(response.status);
+                if (response.status == 200) {
+                    window.location.replace("https://team22.demand.softwareengineeringii.com/dashboard/common.html");
                 }
                 else {
                     alert("You already have an account! Go to the login page to login.");
                 }
-            });
+            }).catch(function(error) {
+		console.error(error)
+	    });
         }
     </script>
 </head>
