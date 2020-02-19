@@ -48,10 +48,10 @@
                 mode: 'no-cors',
                 body: JSON.stringify(regisration)
             }
-            fetch("https://team22.demand.softwareengineeringii.com/registerHandler", options).then(function(response) {
+            fetch("https://demand.team22.softwareengineeringii.com/registerHandler", options).then(function(response) {
 		console.log(response.status);
                 if (response.status == 200) {
-                    window.location.replace("https://team22.demand.softwareengineeringii.com/dashboard/common.html");
+                    window.location.replace("https://demand.team22.softwareengineeringii.com/demand-front-end/dashboard/common.html");
                 }
                 else {
                     alert("You already have an account! Go to the login page to login.");
