@@ -8,16 +8,18 @@
   <link href = 'style.css' rel = 'stylesheet' type = 'text/css'>
   <script>
       let clickedOnSubmitOrder = () => {
+          let newUsername = document.getElementById('username').value;
           let newCardNumber = document.getElementById('card').value;
           let newCVV = document.getElementById('cvv').value;
           let newExpirationDate = document.getElementById('expiration').value;
           let newAddress1 = document.getElementById('address1').value;
           let newAddress2 = document.getElementById('address2').value;
-          if (newCardNumber.length == 0 || newCVV.length == 0 || newExpirationDate.length == 0 || newAddress1.length == 0) {
+          if (newUsername.length == 0 || newCardNumber.length == 0 || newCVV.length == 0 || newExpirationDate.length == 0 || newAddress1.length == 0) {
               alert("Please fill in all the required information.");
               return;
           }
           const regisration = {
+              "username" : newUsername,
               "card" : newCardNumber,
               "cvv" : newCVV,
               "expiration" : newExpirationDate,
@@ -47,109 +49,119 @@
   </script>
 </head>
 <body>
-  <h1> WeGo Services - Dry Cleaning on Demand </h1>
-  <p> place service description here </p>
-  <br>
-
-  <!-- order form begins here -->
-  <form class = 'orderForm' id = 'orderForm' action = 'confirmation_domansi.html' method = 'post'>
-    <table>
-
-      <!-- lists payment type -->
-      <!-- since it is an online order form, only credit or debit cards are allowed -->
-      <!-- therefore i have listed the four main payment types for credit/debit card here -->
-      <!-- feel free to add more payment types if needed -->
-
-      <!--
-
-      <tr>
-        <td>Please choose a payment type:</td>
-      </tr>
-      <tr>
-        <td>Visa</td>
-        <td>
-          <input type = 'radio' name = 'payment' value = 'visa' />
-        </td>
-      </tr>
-      <tr>
-        <td>Mastercard</td>
-        <td>
-          <input type = 'radio' name = 'payment' value = 'mastercard' />
-        </td>
-      </tr>
-      <tr>
-        <td>American Express</td>
-        <td>
-          <input type = 'radio' name = 'payment' value = 'americanexpress' />
-        </td>
-      </tr>
-      <tr>
-        <td>Discover</td>
-        <td>
-          <input type = 'radio' name = 'payment' value = 'discover' />
-        </td>
-      </tr>
-
-      -->
-
-      <!-- credit card information is then request -->
-      <!-- which include the credit card number, the CVV, and the experation date -->
-      <!-- for the experation date, i couldnt figure out how to only have the month and year -->
-      <!-- so that needs to be fixed! -->
-      <tr>
-        <td>Credit Card Number: </td>
-        <td>
-          <input type = 'text' name = 'card' size = '30' maxlength = '16' />
-        </td>
-      </tr>
-
-      <tr>
-        <td>CVV: </td>
-        <td>
-          <input type = 'text' name = 'cvv' size = '30' maxlength = '3' />
-        </td>
-      </tr>
-
-      <tr>
-        <td>Expiration Date: </td>
-        <td>
-          <input type = 'date' name = 'expiration' />
-        </td>
-      </tr>
-
-      <!-- address input for destination -->
-      <tr>
-        <td>Address 1: </td>
-        <td>
-          <input type = 'text' name = 'address1' size = '30' />
-        </td>
-      </tr>
-      <tr>
-        <td>Address 2: </td>
-        <td>
-          <input type = 'text' name = 'address2' size = '30' />
-        </td>
-      </tr>
-
-      <!-- phone number -->
-      <!-- is this required since it was asked during registration? -->
-      <!--
-      <tr>
-        <td>Phone Number: </td>
-        <td>
-          <input type = 'text' name = 'phone' size = '30' maxlength = '10' />
-        </td>
-      </tr>
-      -->
-
-      <!-- submission time! -->
-      <tr>
-        <td>
-          <input type = 'reset' value = 'Reset Order' />
-          <input type = 'submit' value = 'Submit Order' />
-        </td>
-      </tr>
-
-
+  <div class = 'row'>
+    <div class = 'col' style = 'text-align: center'>
+      <h1> WeGo Services - Dry Cleaning on Demand </h1>
+      <p> place service description here </p>
+      <br>
+    </div>
+  </div>
+  <div class = 'container'>
+  <div class = 'row'>
+    <div class = 'col' style = 'text-align: center'>
+      <!-- order form begins here -->
+      <form class = 'orderForm' id = 'orderForm' action = 'confirmation.html' method = 'post'>
+        <table>
+          <!-- username input -->
+          <tr>
+            <td>Username: </td>
+            <td>
+              <input type = 'text' name = 'username' size = '30' />
+            </td>
+          </tr>
+          <!-- lists payment type -->
+          <!-- since it is an online order form, only credit or debit cards are allowed -->
+          <!-- therefore i have listed the four main payment types for credit/debit card here -->
+          <!-- feel free to add more payment types if needed -->
+          <!--
+          <tr>
+            <td>Please choose a payment type:</td>
+          </tr>
+          <tr>
+            <td>Visa</td>
+            <td>
+              <input type = 'radio' name = 'payment' value = 'visa' />
+            </td>
+          </tr>
+          <tr>
+            <td>Mastercard</td>
+            <td>
+              <input type = 'radio' name = 'payment' value = 'mastercard' />
+            </td>
+          </tr>
+          <tr>
+            <td>American Express</td>
+            <td>
+              <input type = 'radio' name = 'payment' value = 'americanexpress' />
+            </td>
+          </tr>
+          <tr>
+            <td>Discover</td>
+            <td>
+              <input type = 'radio' name = 'payment' value = 'discover' />
+            </td>
+          </tr>
+          -->
+          <!-- credit card information is then request -->
+          <!-- which include the credit card number, the CVV, and the experation date -->
+          <!-- for the experation date, i couldnt figure out how to only have the month and year -->
+          <!-- so that needs to be fixed! -->
+          <tr>
+            <td>Credit Card Number: </td>
+            <td>
+              <input type = 'text' name = 'card' size = '30' maxlength = '16' />
+            </td>
+          </tr>
+          <tr>
+            <td>CVV: </td>
+            <td>
+              <input type = 'text' name = 'cvv' size = '30' maxlength = '3' />
+            </td>
+          </tr>
+          <tr>
+            <td>Expiration Date: </td>
+            <td>
+              <input type = 'date' name = 'expiration' />
+            </td>
+          </tr>
+          <!-- address input for destination -->
+          <tr>
+            <td>Address 1: </td>
+            <td>
+              <input type = 'text' name = 'address1' size = '30' />
+            </td>
+          </tr>
+          <tr>
+            <td>Address 2: </td>
+            <td>
+              <input type = 'text' name = 'address2' size = '30' />
+            </td>
+          </tr>
+          <!-- phone number -->
+          <!-- is this required since it was asked during registration? -->
+          <!--
+          <tr>
+            <td>Phone Number: </td>
+            <td>
+              <input type = 'text' name = 'phone' size = '30' maxlength = '10' />
+            </td>
+          </tr>
+          -->
+    </div>
+  </div>
+  </div>
+ <div class = 'container'>
+   <div class = 'row'>
+     <div class='col' style='text-align: center'>
+          <!-- submission time! -->
+          <tr>
+            <td>
+              <input type = 'reset' value = 'Reset Order' />
+              <input type = 'submit' value = 'Submit Order' />
+            </td>
+          </tr>
+      </div>
+    </div>
+  </div>      
 </body>
 </html>
