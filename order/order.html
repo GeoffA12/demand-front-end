@@ -12,8 +12,7 @@
           let newCardNumber = document.getElementById('card').value;
           let newCVV = document.getElementById('cvv').value;
           let newExpirationDate = document.getElementById('expiration').value;
-          let newAddress1 = document.getElementById('address1').value;
-          let newAddress2 = document.getElementById('address2').value;
+          let newDestinationAddress = document.getElementById('destination').value;
           if (newUsername.length == 0 || newCardNumber.length == 0 || newCVV.length == 0 || newExpirationDate.length == 0 || newAddress1.length == 0) {
               alert("Please fill in all the required information.");
               return;
@@ -23,8 +22,7 @@
               "card" : newCardNumber,
               "cvv" : newCVV,
               "expiration" : newExpirationDate,
-              "address1" : newAddress1
-              "address2" : newAddress2
+              "destination" : newDestinationAddress
           }
           const options = {
               method: "POST",
@@ -126,17 +124,12 @@
           </tr>
           <!-- address input for destination -->
           <tr>
-            <td>Address 1: </td>
+            <td>Destination Address: </td>
             <td>
-              <input type = 'text' name = 'address1' size = '30' />
+              <input type = 'text' name = 'destination' size = '30' />
             </td>
           </tr>
           <tr>
-            <td>Address 2: </td>
-            <td>
-              <input type = 'text' name = 'address2' size = '30' />
-            </td>
-          </tr>
           <!-- phone number -->
           <!-- is this required since it was asked during registration? -->
           <!--
@@ -162,6 +155,6 @@
           </tr>
       </div>
     </div>
-  </div>      
+  </div>
 </body>
 </html>
