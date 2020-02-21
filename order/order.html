@@ -7,8 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href = 'style.css' rel = 'stylesheet' type = 'text/css'>
   <script>
+      const type = "DryCleaning"
       let clickedOnSubmitOrder = () => {
-          let newUsername = document.getElementById('username').value;
+          let username = document.getElementById('username').value;
           let newCardNumber = document.getElementById('card').value;
           let newCVV = document.getElementById('cvv').value;
           let newExpirationDate = document.getElementById('expiration').value;
@@ -17,8 +18,9 @@
               alert("Please fill in all the required information.");
               return;
           }
-          const regisration = {
-              "username" : newUsername,
+          const order = {
+              "serviceType" : type,
+              "username" : username,
               "card" : newCardNumber,
               "cvv" : newCVV,
               "expiration" : newExpirationDate,
