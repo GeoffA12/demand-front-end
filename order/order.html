@@ -14,7 +14,7 @@
           let newCVV = document.getElementById('cvv').value;
           let newExpirationDate = document.getElementById('expiration').value;
           let newDestinationAddress = document.getElementById('destination').value;
-          if (newUsername.length == 0 || newCardNumber.length == 0 || newCVV.length == 0 || newExpirationDate.length == 0 || newAddress1.length == 0) {
+          if (username.length == 0 || newCardNumber.length == 0 || newCVV.length == 0 || newExpirationDate.length == 0 || newDestinationAddress.length == 0) {
               alert("Please fill in all the required information.");
               return;
           }
@@ -56,9 +56,6 @@
       <br>
     </div>
   </div>
-  <div class = 'container'>
-  <div class = 'row'>
-    <div class = 'col' style = 'text-align: center'>
       <!-- order form begins here -->
       <form class = 'orderForm' id = 'orderForm' action = 'confirmation.html' method = 'post'>
         <table>
@@ -142,12 +139,6 @@
             </td>
           </tr>
           -->
-    </div>
-  </div>
-  </div>
- <div class = 'container'>
-   <div class = 'row'>
-     <div class='col' style='text-align: center'>
           <!-- submission time! -->
           <tr>
             <td>
@@ -155,8 +146,5 @@
               <input type = 'submit' value = 'Submit Order' />
             </td>
           </tr>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
