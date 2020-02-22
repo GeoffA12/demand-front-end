@@ -7,12 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
-        function printMessage()
+        function goToOrderPage()
         {
-            var paragraph = document.getElementById("not_implemented");
-            paragraph.style.color = "red";
-            paragraph.textContent = "";
-            paragraph.textContent += "NOT IMPLEMENTED YET";
+            window.location.replace("https://demand.team22.softwareengineeringii.com/demand-front-end/order/order.html");
         }
     </script>
 
@@ -70,14 +67,14 @@
 			<img id="RXDelivery" onclick="printMessage()" src="/landing/assets/note.png" alt="">
             <!--CHANGE PATH NAME-->
             <!--../landing/assets/note.png-->
-			<h4 onclick="printMessage()">RX Delivery</h4>
+			<h4>RX Delivery</h4>
 		</div>
 
 		<div class="col imgHeader rounded-circle m-4 p-5">
 			<img id="Events" onclick="printMessage()" src="/landing/assets/disco-ball.png" alt="">
             <!--CHANGE PATH NAME-->
             <!--../landing/assets/disco-ball.png-->
-			<h4 onclick="printMessage()">Events</h4>
+			<h4>Events</h4>
 		</div>
 
 		<!-- <div class="w-100"></div> -->
@@ -85,14 +82,14 @@
 			<img id="Laundry" onclick="printMessage()" src="/landing/assets/washer.png" alt="">
             <!--CHANGE PATH NAME-->
             <!--../landing/assets/washer.png-->
-			<h4 onclick="printMessage()">Laundry</h4>
+			<h4>Laundry</h4>
 		</div>
 
 		<div class="col imgHeader rounded-circle m-4 p-5">
 			<img id="Coffee" onclick="printMessage()" src="/landing/assets/coffee-machine.png" alt="">
             <!--CHANGE PATH NAME-->
             <!--../landing/assets/coffee-machine.png-->
-			<h4 onclick="printMessage()">Coffee</h4>
+			<h4>Coffee</h4>
 		</div>
 	</div>
 
@@ -116,6 +113,8 @@
 			<br>
 			<br>
 		</div>
+		<br>
+		<button id="orderLaundry" onclick="goToOrderPage()">Order a dry-clean delivery vehicle</button>
 	</div>
 	<br>
 	<br>
