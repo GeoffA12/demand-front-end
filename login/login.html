@@ -11,12 +11,14 @@
 				alert("You need to enter a username and password");
 				return;
 			}
-			const login = 
+			var username = document.getElementById("user_name").value
+			const login =
 			{
-				"username" : document.getElementById("user_name").value,
+				"username" : username,
 				"password" : document.getElementById("user_password").value
 			};
-            
+            sessionStorage.setItem('username', username);
+
 			const options =
 			{
                 method: 'POST',
@@ -28,7 +30,6 @@
                 body: JSON.stringify(login)
 			}
 			console.log(options);
-
             fetch("https://demand.team22.softwareengineeringii.com/loginHandler", options).then(function(response) {
 	
                 if (response.status == 200)
