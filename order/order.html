@@ -1,17 +1,16 @@
 <!doctype html>
 <html lang = 'en'>
+
 <head>
-  <title>WeGo Services</title>
-  <meta charset = 'UTF-8'>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href = 'style.css' rel = 'stylesheet' type = 'text/css'>
-  <script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
       const type = "DryCleaning";
       let clickedOnSubmitOrder = () => {
 	  debugger;
           let username = document.getElementById('username').value;
-	 
+
           let newCardNumber = document.getElementById('card').value;
           let newCVV = document.getElementById('cvv').value;
           let newExpirationDate = document.getElementById('expiration').value;
@@ -19,7 +18,7 @@
           if (username.length == 0 || newCardNumber.length == 0 || newCVV.length == 0 || newExpirationDate.length == 0 || newDestinationAddress.length == 0) {
               alert("Please fill in all the required information.");
           }
-	  else {  
+	  else {
          	 const order = {
               	 	"serviceType" : type,
               	 	"username" : username,
@@ -47,105 +46,97 @@
           	}).catch(function(error) {
   			console.error(error)
     		});
-      	    }    
+      	    }
 	}
   </script>
+
+    <title>WeGo Services</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css" media="screen">
 </head>
+
 <body>
-  <div class = 'row'>
-    <div class = 'col' style = 'text-align: center'>
-      <h1> WeGo Services - Dry Cleaning on Demand </h1>
-      <p> place service description here </p>
-      <br>
+	<div class="container-fluid bg-info" style= "text-align: center; height: 200px">
+		<h1>Dry Cleaning</h1>
+        <br>
+		<h4>
+        Here, we have all your dry cleaning desired fulfilled!
+            You're just 30 minutes and click away from have all the clothing you need dry cleaned dry cleaned!
+        </h4>
+        <br><br>
     </div>
-  </div>
-      <!-- order form begins here -->
-      <form class = 'orderForm' id = 'orderForm' action = 'confirmation.html' method = 'post'>
-        <table>
-          <!-- username input -->
-          <tr>
-            <td>Username: </td>
-            <td>
-              <input type='text' id='username' size='30'>
-            </td>
-          </tr>
-          <!-- lists payment type -->
-          <!-- since it is an online order form, only credit or debit cards are allowed -->
-          <!-- therefore i have listed the four main payment types for credit/debit card here -->
-          <!-- feel free to add more payment types if needed -->
-          <!--
-          <tr>
-            <td>Please choose a payment type:</td>
-          </tr>
-          <tr>
-            <td>Visa</td>
-            <td>
-              <input type = 'radio' name = 'payment' value = 'visa' />
-            </td>
-          </tr>
-          <tr>
-            <td>Mastercard</td>
-            <td>
-              <input type = 'radio' name = 'payment' value = 'mastercard' />
-            </td>
-          </tr>
-          <tr>
-            <td>American Express</td>
-            <td>
-              <input type = 'radio' name = 'payment' value = 'americanexpress' />
-            </td>
-          </tr>
-          <tr>
-            <td>Discover</td>
-            <td>
-              <input type = 'radio' name = 'payment' value = 'discover' />
-            </td>
-          </tr>
-          -->
-          <!-- credit card information is then request -->
-          <!-- which include the credit card number, the CVV, and the experation date -->
-          <!-- for the experation date, i couldnt figure out how to only have the month and year -->
-          <!-- so that needs to be fixed! -->
-          <tr>
-            <td>Credit Card Number: </td>
-            <td>
-              <input type='text' id='card' size='30' maxlength='16'>
-            </td>
-          </tr>
-          <tr>
-            <td>CVV: </td>
-            <td>
-              <input type='text' id='cvv' size='30' maxlength='3' >
-            </td>
-          </tr>
-          <tr>
-            <td>Expiration Date: </td>
-            <td>
-              <input type='date' id='expiration'>
-            </td>
-          </tr>
-          <!-- address input for destination -->
-          <tr>
-            <td>Destination Address: </td>
-            <td>
-              <input type='text' id='destination' size='30'>
-            </td>
-          </tr>
-          <tr>
-          <!-- phone number -->
-          <!-- is this required since it was asked during registration? -->
-          <!--
-          <tr>
-            <td>Phone Number: </td>
-            <td>
-              <input type = 'text' name = 'phone' size = '30' maxlength = '10' />
-            </td>
-          </tr>
-          -->
-          <!-- submission time! -->
-        
-	</table>
-	</form>
-	<button id="submitButton" onclick="clickedOnSubmitOrder()">Submit Order</button>
+
+    <div class="container">
+        <div class="row" style="height:25%">
+            <div class="col imgHeader rounded-circle m-4 p-5">
+                <img src="../assets/washer.png">
+                <h4>Dry Cleaning</h4>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="container" style="text-align: center">
+        <form class = 'orderForm row justify-content-center' id = 'orderForm' action = 'confirmation.html' method = 'post'>
+            <table>
+                <!-- username input -->
+                <tr>
+                    <td>Username: </td>
+                    <td>
+                        <input type='text' id='username' size='30'>
+                    </td>
+                </tr>
+                <tr>
+                  <td>Please choose a payment type:</td>
+                    <td>
+                        <select id="paymentMethods">s
+                            <option value="visa">Visa</option>
+                            <option value="master">Master Card</option>
+                            <option value="pp">PayPal</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Credit Card Number: </td>
+                    <td>
+                        <input type='text' id='card' size='30' maxlength='16'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CVV: </td>
+                    <td>
+                        <input type='text' id='cvv' size='30' maxlength='3' >
+                    </td>
+                </tr>
+                <tr>
+                    <td>Expiration Date: </td>
+                    <td>
+                        <input type='date' id='expiration'>
+                    </td>
+                </tr>
+                <!-- address input for destination -->
+                <tr>
+                    <td>Destination Address: </td>
+                    <td>
+                        <input type='text' id='destination' size='30'>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- phone number -->
+                    <!-- is this required since it was asked during registration? -->
+                    <!--
+                    <tr>
+                      <td>Phone Number: </td>
+                      <td>
+                        <input type = 'text' name = 'phone' size = '30' maxlength = '10' />
+                      </td>
+                    </tr>
+                    -->
+                    <!-- submission time! -->
+
+            </table>
+        </form>
+        <button id="submitButton" onclick="clickedOnSubmitOrder()">Submit Order</button>
+    </div>
 </body>
 </html>
