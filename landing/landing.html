@@ -1,113 +1,66 @@
 <!doctype html>
 <html lang="en">
-	
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
     <script>
-        let goToLogin = () => {
-		window.location.replace("https://team22.demand.softwareengineeringii.com/login/login.html");
-	}
-	let goToRegister = () => {
-		window.location.replace("https://team22.demand.softwareengineeringii.com/register/register.html");
-	}
+    	let goToLogin = () => {
+				window.location.replace("https://demand.team22.softwareengineeringii.com/demand-front-end/login/login.html");
+			}
+        let goToRegister = () => {
+            window.location.replace("https://demand.team22.softwareengineeringii.com/demand-front-end/register/register.html");
+        }
     </script>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<br>
 	<title>WeGo Services</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<style media="screen">
-	body {
-		background-color: white;
-	}
-
-	button {
-		cursor: pointer;
-		display: block;
-	}
-
-	.imgHeader {
-		text-align: center;
-		padding: 50%;
-	}
-
-	img {
-		height: 100px;
-	}
-
-	.rounded-circle {
-		background-color: grey;
-	}
-
-	/* Sets the margin to $spacer * 1.5- used to make app backgrounds circular */
-	.m-4 {
-  		margin: $spacer !important;
-	}
-
-	/* Sets the padding to $spacer * 3- also used to make app backgrounds circular */
-	.p-5 {
-		padding: $spacer !important;
-	}
-
-	</style>
+	<link rel="stylesheet" href="../style.css" media="screen">
 </head>
 
 <body>
-	<div class="container-fluid bg-info" style= "text-align: center">
+	<div class="container-fluid bg-info" style= "text-align: center; height: 200px">
 		<h1>WeGo Services</h1>
 		<br>
-		<h4>Autonomous delivery & logistics services</h4>
+		<h4>Autonomous Delivery & Logistics Services</h4>
 		<br><br>
 	</div>
 
 	<div class="container">
-	<div class="row">
-		<div class="col imgHeader rounded-circle m-4 p-5">
-			<img src="file:///C:/Users/Zoe/Documents/Spring 2020/Software Engineering/Project/landing/assets/note.png" alt="">
-			<h4>RX Delivery</h4>
-		</div>
+        <div class="row">
+            <div class="col  rounded-circle m-4 p-5">
+                <img src="../assets/note.png">
+                <h4>RX Delivery</h4>
+            </div>
 
-		<div class="col imgHeader rounded-circle m-4 p-5">
-			<img src="file:///C:/Users/Zoe/Documents/Spring 2020/Software Engineering/Project/landing/assets/disco-ball.png" alt="">
-			<h4>Events</h4>
-		</div>
+            <div class="col imgHeader rounded-circle m-4 p-5">
+                <img src="../assets/disco-ball.png">
+                <h4>Events</h4>
+            </div>
 
-		<!-- <div class="w-100"></div> -->
-		<div class="col imgHeader rounded-circle m-4 p-5">
-			<img src="file:///C:/Users/Zoe/Documents/Spring 2020/Software Engineering/Project/landing/assets/washer.png" alt="">
-			<h4>Laundry</h4>
-		</div>
+            <div class="col imgHeader rounded-circle m-4 p-5">
+                <img src="../assets/washer.png">
+                <h4>Dry Cleaning</h4>
+            </div>
 
-		<div class="col imgHeader rounded-circle m-4 p-5">
-			<img src="file:///C:/Users/Zoe/Documents/Spring 2020/Software Engineering/Project/landing/assets/coffee-machine.png" alt="">
-			<h4>Coffee</h4>
-		</div>
+            <div class="col imgHeader rounded-circle m-4 p-5">
+                <img src="../assets/coffee-machine.png">
+                <h4>Coffee</h4>
+            </div>
+        </div>
 	</div>
 
 	<br>
 	<div class="container" style="text-align: center">
 		<div class="row justify-content-center">
-			<h4 style="text-align: center">Get Started</h4>
-			<div class="w-100">
-			</div>
-			<br>
-		
-			<button type="submit" onclick="goToRegister()" formmethod="post">Create New Account</button>
-			
-			<br>
-			<br>
-			
-			<button type="submit" onclick="goToLogin()" formmethod="post">Log In</button>
-			
-			
-			<br>
-			<br>
-		</div>
-	</div>
+            <h4 style="text-align: center">Get Started</h4>
+            <div class="w-100"></div>
+            <br><br><br>
+            <button onclick="goToRegister()">Create New Account</button>
+            <button onclick="goToLogin()">Log In</button>
+        </div>
+    </div>
 	<br>
 	<br>
 	<br>
@@ -116,5 +69,4 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
 </body>
-
 </html>
