@@ -8,7 +8,6 @@
     <script>
       const type = "DryCleaning";
       let clickedOnSubmitOrder = () => {
-	  debugger;
           let username = document.getElementById('username').value;
           let newCardNumber = document.getElementById('card').value;
           let newCVV = document.getElementById('cvv').value;
@@ -37,7 +36,7 @@
           	fetch("https://demand.team22.softwareengineeringii.com/orderHandler", options).then(function(response) {
               		console.log(response.status);
               		if (response.status == 200) {
-                  		window.location.replace("https://demand.team22.softwareengineeringii.com/demand-front-end/order/confirmation.html");
+                  		window.location.replace("https://demand.team22.softwareengineeringii.com/demand-front-end/services/confirmation.html");
               		}
               		else {
                   		alert("There is no username tied to that account!");
@@ -67,13 +66,13 @@
         </div>
     </div>
     <br>
-
+    <!--
     <div class="container">
         <div class="row justify-content-center">
             <button id="startOrderForm">Start an Order</button>
         </div>
     </div>
-
+    <-->
     <div id="orderDiv" class="container" style="text-align: center">
         <form class = 'row justify-content-center' id = 'orderForm' action = 'confirmation.html' method = 'post'>
             <table>
@@ -84,6 +83,7 @@
                         <input type='text' id='username' size='30'>
                     </td>
                 </tr>
+		<!--
                 <tr>
                   <td>Please choose a payment type:</td>
                     <td>
@@ -94,6 +94,7 @@
                         </select>
                     </td>
                 </tr>
+		-->
                 <tr>
                     <td>Credit Card Number: </td>
                     <td>
