@@ -1,8 +1,4 @@
 #Demand Frontend
-###Functionality and Connections:
-
-
-#File Structure:
 ```
 /dashboard
     This will be the page that holds all of our services that our customer may select from with it's primary function being
