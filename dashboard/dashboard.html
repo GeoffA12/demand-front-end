@@ -22,11 +22,11 @@
 		function welcome() {
 			let user = sessionStorage.getItem('username') 
 			// name = get first name the user
-			let name = 'Jeffrey'
+			let name = user;
             let numFleets = 1;
             let multFleets = numFleets > 1;
             let descriptionHeader = document.getElementById('welcomeDesc');
-            newText = document.createTextNode(`Welcome to WeGo Services ${name}!. Here are some of our most popular services`);
+            newText = document.createTextNode(`Welcome to WeGo Services ${name}! Here are some of our most popular services`);
             descriptionHeader.appendChild(newText);
         }
 	</script>

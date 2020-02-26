@@ -32,16 +32,17 @@
             }
             console.log(options);
             
-            fetch("https://demand.team22.softwareengineeringii.com/loginHandler", options).then(function(response) {
+            // fetch("https://demand.team22.softwareengineeringii.com/loginHandler", options).then(function(response) {
     
-                if (response.status == 200)
-                {
-                    window.location.replace("https://demand.team22.softwareengineeringii.com/demand-front-end/dashboard/common.html");
-                }
-                else {
-                    alert("You don't have an account yet! Go to the regisration page.");
-                }
-            });
+            //     if (response.status == 200)
+            //     {
+            //         window.location.replace("https://demand.team22.softwareengineeringii.com/demand-front-end/dashboard/common.html");
+            //     }
+            //     else {
+            //         alert("You don't have an account yet! Go to the regisration page.");
+            //     }
+            // });
+            window.location.replace("../dashboard/dashboard.html");
         }
     </script>
 
