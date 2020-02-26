@@ -37,7 +37,7 @@
           	fetch("https://demand.team22.softwareengineeringii.com/orderHandler", options).then(function(response) {
               		console.log(response.status);
               		if (response.status == 200) {
-                  		window.location.replace("https://demand.team22.softwareengineeringii.com/demand-front-end/order/confirmation.html");
+                  		window.location.assign("https://demand.team22.softwareengineeringii.com/demand-front-end/order/confirmation.html");
               		}
               		else {
                   		alert("There is no username tied to that account!");
