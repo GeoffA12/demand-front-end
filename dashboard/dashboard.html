@@ -6,9 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script>
-        function goToOrderPage() {
+		function rxRedirect() {
+			alert('I will redirect to an RX Delivery page!')
+		}
+		function eventsRedirect() {
+			alert('I will redirect to an Events Delivery page!')
+		}
+        function drycleaningRedirect() {
             window.location.replace("https://demand.team22.softwareengineeringii.com/demand-front-end/order/order.html");
 		}
+		function coffeeRedirect() {
+			alert('I will redirect to a Coffee Deilver page!')
+		}
+		
 		function welcome() {
 			let user = sessionStorage.getItem('username') 
 			// name = get first name the user
@@ -38,7 +48,7 @@
 			<div class="col">
 				<div class="row align-items-center">
 					<div class="imgHeader rounded-circle m-4 p-5">
-						<img id="RXDelivery" onclick="printMessage()" src="../images/note.png">
+						<img id="RXDelivery" onclick="rxRedirect()" src="../images/note.png">
 					</div>
 					<div class="col">
 						<h2>RX Delivery</h2>
@@ -52,7 +62,7 @@
 			<div class="col">
 				<div class="row align-items-center">					
 					<div class="imgHeader rounded-circle m-4 p-5">
-						<img id="Events" onclick="printMessage()" src="../images/disco-ball.png">
+						<img id="Events" onclick="eventsRedirect()" src="../images/disco-ball.png">
 					</div>
 					<div class="col">
 						<h2>Event Planning</h2>
@@ -68,7 +78,7 @@
 			<div class="col">
 				<div class="row align-items-center">
 					<div class="imgHeader rounded-circle m-4 p-5">
-						<img id="Laundry" onclick="goToOrderPage()" src="../images/washer.png">
+						<img id="Laundry" onclick="drycleaningRedirect()" src="../images/washer.png">
 					</div>
 					<div class="col">
 						<h2>Dry Cleaning</h2>
@@ -82,7 +92,7 @@
 			<div class="col">
 				<div class="row align-items-center">
 					<div class="imgHeader rounded-circle m-4 p-5">
-						<img id="Coffee" onclick="printMessage()" src="../images/coffee-machine.png">
+						<img id="Coffee" onclick="coffeeRedirect()" src="../images/coffee-machine.png">
 					</div>
 					<div class="col">
 						<h2>Coffee Maker</h2>
@@ -94,7 +104,5 @@
 			</div>
 		</div>
 	</div>
-
-	<p id="not_implemented" STYLE="position:absolute; TOP:600px; LEFT:550px;">  </p>
 </body>
 </html>

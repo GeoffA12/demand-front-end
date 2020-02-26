@@ -1,19 +1,47 @@
-20/02/2020
-Spring cleaning x:
+Demand Frontend ReadMe
 
-23/2/2020
-3:27
-Relative scr blocks for images. Cleaned up some CSS, and now all pages follow the UI guide.
+Functionality and Connetions:
 
-5:05
-Found a way to preserve username across page redirects d:
 
-24/2/2020
-22:51
-A lot of css experimenting, page layouts, found out what as causing the malformness behaviour with the icon blocks. File directory restructuring
+File Structure:
+/dashboard
 
-25/2/2020
-12:15
-More experimenting, added dumby pages for our other services for now. Will talk to geoff more about directories and linking
-Getting more and more used to Bootstrap
-TODO need to make different button sizes that follow our ui guides.
+    # This will be the page that holds all of our services that our customer may select from with it's primary function being
+    # providing description to each service and allowing redirect to said service pages.
+    /dashboard.html
+
+/images
+    # Not much to say here, just holds images that we'll be using
+
+/js
+
+/login
+
+    # Just your standard login page
+    /login.html
+
+/register
+
+    # Will enquire a new user to input a username, password, email and phone number. 
+    /register.html
+
+/services
+    # Here will be all the landing pages of our different services. Currently there's nothing actually unique about any of these aside from the fact that one of them has a
+    # working backend handler, that being the drycleaning.html. I should also say, the order page was made for the drycleaning.html specifically then just copy pasted
+    # with their own indentifying headers
+    /coffee.html
+    /drycleaning.html
+    /party.html
+    /rx.html
+
+    # This will be the order confirmation page for all of our services. How exactly I'm going to handle that, not to sure yet, but it also doesn't make sense to have
+    # an order confirmation page specifically for each service. What's so unique that it requires an entirely different html page?
+    /confimation.html
+
+/styling
+
+    # Site wide UI Style guide
+    /style.css
+ 
+/index.html
+    # This will be the first that any user will encounter if they go to our URL where they will be presented with the option to either login or register with WeGo services
