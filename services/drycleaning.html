@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang = 'en'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+      const type = "DryCleaning";
+      let clickedOnSubmitOrder = () => {
+	  debugger;
+          let username = document.getElementById('username').value;
+          let newCardNumber = document.getElementById('card').value;
+          let newCVV = document.getElementById('cvv').value;
+          let newExpirationDate = document.getElementById('expiration').value;
+          let newDestinationAddress = document.getElementById('destination').value;
+          if (username.length == 0 || newCardNumber.length == 0 || newCVV.length == 0 || newExpirationDate.length == 0 || newDestinationAddress.length == 0) {
+              alert("Please fill in all the required information.");
+          }
+	  else {
+         	 const order = {
+              	 	"serviceType" : type,
+              	 	"username" : username,
+              	 	"card" : newCardNumber,
+              		"cvv" : newCVV,
+              		"expiration" : newExpirationDate,
+              		"destination" : newDestinationAddress
+          	}
+          	const options = {
+              		method: "POST",
+              		headers: {
+                  		'Content-Type' : 'application/json'
+              		},
+              		mode: 'no-cors',
+              		body: JSON.stringify(order)
+          	}
+          	fetch("https://demand.team22.softwareengineeringii.com/orderHandler", options).then(function(response) {
+              		console.log(response.status);
+              		if (response.status == 200) {
+                  		window.location.replace("https://demand.team22.softwareengineeringii.com/demand-front-end/order/confirmation.html");
+              		}
+              		else {
+                  		alert("There is no username tied to that account!");
+              		}
+          	}).catch(function(error) {
+  			console.error(error)
+    		});
+      	    }
+	}
+  </script>
+
+    <title>WeGo Services</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="../styling/style.css" media="screen">
+</head>
+
+<body>
+	<div class="cHeader container-fluid bg-info">
+		<h1>Dry Cleaning</h1>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="imgHeader rounded-circle m-4 p-5">
+                <img src="../images/washer.png">
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <button id="startOrderForm">Start an Order</button>
+        </div>
+    </div>
+
+    <div id="orderDiv" class="container" style="text-align: center">
+        <form class = 'row justify-content-center' id = 'orderForm' action = 'confirmation.html' method = 'post'>
+            <table>
+                <!-- username input -->
+                <tr>
+                    <td>Username: </td>
+                    <td>
+                        <input type='text' id='username' size='30'>
+                    </td>
+                </tr>
+                <tr>
+                  <td>Please choose a payment type:</td>
+                    <td>
+                        <select id="paymentMethods">s
+                            <option value="visa">Visa</option>
+                            <option value="master">Master Card</option>
+                            <option value="pp">PayPal</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Credit Card Number: </td>
+                    <td>
+                        <input type='text' id='card' size='30' maxlength='16'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CVV: </td>
+                    <td>
+                        <input type='text' id='cvv' size='30' maxlength='3' >
+                    </td>
+                </tr>
+                <tr>
+                    <td>Expiration Date: </td>
+                    <td>
+                        <input type='date' id='expiration'>
+                    </td>
+                </tr>
+                <!-- address input for destination -->
+                <tr>
+                    <td>Destination Address: </td>
+                    <td>
+                        <input type='text' id='destination' size='30'>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- phone number -->
+                    <!-- is this required since it was asked during registration? -->
+                    <!--
+                    <tr>
+                      <td>Phone Number: </td>
+                      <td>
+                        <input type = 'text' name = 'phone' size = '30' maxlength = '10' />
+                      </td>
+                    </tr>
+                    -->
+                    <!-- submission time! -->
+
+            </table>
+        </form>
+        <button id="submitButton" onclick="clickedOnSubmitOrder()">Submit Order</button>
+    </div>
+</body>
+</html>

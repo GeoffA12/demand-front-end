@@ -2,11 +2,107 @@
 <html lang="en">
 	
 <head>
-    <h1>this is header</h1>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+		function rxRedirect() {
+			alert('I will redirect to an RX Delivery page!')
+		}
+		function eventsRedirect() {
+			alert('I will redirect to an Events Delivery page!')
+		}
+        function drycleaningRedirect() {
+            window.location.replace("https://demand.team22.softwareengineeringii.com/demand-front-end/order/order.html");
+		}
+		function coffeeRedirect() {
+			alert('I will redirect to a Coffee Deilver page!')
+		}
+		
+		function welcome() {
+			let user = sessionStorage.getItem('username') 
+			// name = get first name the user
+			let name = user;
+            let numFleets = 1;
+            let multFleets = numFleets > 1;
+            let descriptionHeader = document.getElementById('welcomeDesc');
+            newText = document.createTextNode(`Welcome to WeGo Services ${name}! Here are some of our most popular services`);
+            descriptionHeader.appendChild(newText);
+        }
+	</script>
+
+    <title>WeGo Services</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styling/style.css" media="screen">
 </head>
+<body onload="welcome()">
+	<div class="cHeader container-fluid bg-info">
+		<h1>WeGo Services</h1>
+		<br>
+        <h4 id="welcomeDesc"></h4>
+		<br><br>
+	</div>
 
-<body>
-	<h3> This is the body</h3>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="row align-items-center">
+					<div class="imgHeader rounded-circle m-4 p-5">
+						<img id="RXDelivery" onclick="rxRedirect()" src="../images/note.png">
+					</div>
+					<div class="col">
+						<h2>RX Delivery</h2>
+						<p>
+							Description Description Description Description Description Description
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="row align-items-center">					
+					<div class="imgHeader rounded-circle m-4 p-5">
+						<img id="Events" onclick="eventsRedirect()" src="../images/disco-ball.png">
+					</div>
+					<div class="col">
+						<h2>Event Planning</h2>
+						<p>
+							Description Description Description Description Description Description
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col">
+				<div class="row align-items-center">
+					<div class="imgHeader rounded-circle m-4 p-5">
+						<img id="Laundry" onclick="drycleaningRedirect()" src="../images/washer.png">
+					</div>
+					<div class="col">
+						<h2>Dry Cleaning</h2>
+						<p class="serviceDesc">
+							Description Description Description Description Description Description
+						</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col">
+				<div class="row align-items-center">
+					<div class="imgHeader rounded-circle m-4 p-5">
+						<img id="Coffee" onclick="coffeeRedirect()" src="../images/coffee-machine.png">
+					</div>
+					<div class="col">
+						<h2>Coffee Maker</h2>
+						<p class="serviceDesc">
+							Description Description Description Description Description Description
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-
 </html>
