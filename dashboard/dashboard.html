@@ -13,14 +13,14 @@
 			alert('I will redirect to an Events Delivery page!')
 		}
         function drycleaningRedirect() {
-            window.location.assign("https://demand.team22.softwareengineeringii.com/demand-front-end/order/order.html");
+            window.location.assign("https://demand.team22.softwareengineeringii.com/demand-front-end/services/drycleaning.html");
 		}
 		function coffeeRedirect() {
 			alert('I will redirect to a Coffee Deilver page!')
 		}
-		
+
 		function welcome() {
-			let user = sessionStorage.getItem('username') 
+			let user = sessionStorage.getItem('username')
 			// name = get first name the user
 			let name = user;
             let numFleets = 1;
@@ -60,7 +60,7 @@
 			</div>
 
 			<div class="col">
-				<div class="row align-items-center">					
+				<div class="row align-items-center">
 					<div class="imgHeader rounded-circle m-4 p-5">
 						<img id="Events" onclick="eventsRedirect()" src="../images/disco-ball.png">
 					</div>
@@ -73,7 +73,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col">
 				<div class="row align-items-center">
@@ -88,7 +88,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="col">
 				<div class="row align-items-center">
 					<div class="imgHeader rounded-circle m-4 p-5">
@@ -103,6 +103,7 @@
 				</div>
 			</div>
 		</div>
+		<button id="dryCleanButton" onclick="drycleaningRedirect()">Order dry-clean vehicle</button>
 	</div>
 </body>
 </html>
