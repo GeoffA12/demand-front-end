@@ -12,6 +12,15 @@
     <link rel="stylesheet" href="../styling/style.css" media="screen">
 
     <script>
+    var vehicleInfo = sessionStorage.getItem('vehicleInfo')
+    let lp = vehicleInfo['liscensePlate']
+    let make = vehicleInfo['make']
+    let model = vehicleInfo['model']
+    let eta = vehicleInfo['ETA']
+
+    document.getElementById('etaP').innerHTML = `ETA: ${eta}`
+    document.getElementById('vDescP').innerHTML = `Vehicle: ${make} ${model}`
+    document.getElementById('lp').innerHTML = `License Plate: ${lp}`
       //retrieve order id from sessionStorage
       //make request get/post where parameter/body contains order id
       //from response, render it on something
@@ -25,9 +34,9 @@
         <h1> WeGo Services</h1>
 		<h2> Order Confirmation Information </h2>
         <br>
-        <p> ETA: 11 MINUTES </p>
-        <p> Vehicle: Mercedes V-9 </p>
-        <p> License Plate: gf9012 </p>
+        <p id='etaP'> ETA: 11 MINUTES </p>
+        <p id='vDescP'> Vehicle: Mercedes V-9 </p>
+        <p id='lp'> License Plate: gf9012 </p>
         <br>
         <p> Congratulations! Your order submission has been sent. </p>
         <p> Thank you for using WeGo Services! </p>
