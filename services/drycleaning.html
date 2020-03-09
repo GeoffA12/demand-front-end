@@ -36,7 +36,18 @@
           	fetch("https://demand.team22.softwareengineeringii.com/orderHandler", options).then(function(response) {
               		console.log(response.status);
               		if (response.status == 200) {
+                    var respVehicle = response.json()
+                    console.log(respVehicle)
+                    delete respVehicle ['Success']
+                    console.log(respVehicle)
+                    delete respVehicle ['Vehicle Info'] ['curLocation']
+                    console.log(respVehicle)
+                    respVehicle = respVehicle['Vehicle Info']
+                    console.log(respVehicle)
+                    sessionStorage.setItem('vehicleInfo', respVehicle)
                   		window.location.assign("https://demand.team22.softwareengineeringii.com/demand-front-end/services/confirmation.html");
+                      //get the response data from json
+                      //extract order id from json object and store it into sessionStorage
               		}
               		else {
                   		alert("There is no username tied to that account!");
