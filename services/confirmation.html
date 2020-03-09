@@ -10,23 +10,6 @@
     <title>WeGo Services</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="../styling/style.css" media="screen">
-
-    <script>
-    var vehicleInfo = sessionStorage.getItem('vehicleInfo')
-    let lp = vehicleInfo['liscensePlate']
-    let make = vehicleInfo['make']
-    let model = vehicleInfo['model']
-    let eta = vehicleInfo['ETA']
-
-    document.getElementById('etaP').innerHTML = `ETA: ${eta}`
-    document.getElementById('vDescP').innerHTML = `Vehicle: ${make} ${model}`
-    document.getElementById('lp').innerHTML = `License Plate: ${lp}`
-      //retrieve order id from sessionStorage
-      //make request get/post where parameter/body contains order id
-      //from response, render it on something
-      //go to next page inside here
-    </script>
-
 </head>
 <body>
 <div class = 'row'>
@@ -44,5 +27,23 @@
         <div align="center"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220448.6973047033!2d-97.8934870149484!3d30.307982710394914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1583372990884!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div>
 	</div>
     </div>
+
+    
+
+    <script>
+
+    let lp = sessionStorage.getItem('lp');
+    let make = sessionStorage.getItem('make')
+    let model = sessionStorage.getItem('model')
+    let eta = sessionStorage.getItem('ETA')
+
+    document.getElementById('etaP').innerHTML = `ETA: ${eta} Minutes`
+    document.getElementById('vDescP').innerHTML = `Vehicle: ${make} ${model}`
+    document.getElementById('lp').innerHTML = `License Plate: ${lp}`
+      //retrieve order id from sessionStorage
+      //make request get/post where parameter/body contains order id
+      //from response, render it on something
+      //go to next page inside here
+    </script>
 </body>
 </html>
