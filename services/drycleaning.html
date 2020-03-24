@@ -9,20 +9,14 @@
       const type = "DryCleaning";
       let clickedOnSubmitOrder = () => {
           let username = document.getElementById('username').value;
-          let newCardNumber = document.getElementById('card').value;
-          let newCVV = document.getElementById('cvv').value;
-          let newExpirationDate = document.getElementById('expiration').value;
           let newDestinationAddress = document.getElementById('destination').value;
-          if (username.length == 0 || newCardNumber.length == 0 || newCVV.length == 0 || newExpirationDate.length == 0 || newDestinationAddress.length == 0) {
+          if (username.length == 0 || newDestinationAddress.length == 0) {
               alert("Please fill in all the required information.");
           }
 	  else {
          	 const order = {
               	 	"serviceType" : type,
               	 	"username" : username,
-              	 	"card" : newCardNumber,
-              		"cvv" : newCVV,
-              		"expiration" : newExpirationDate,
               		"destination" : newDestinationAddress
           	}
           	const options = {
@@ -81,12 +75,6 @@
                     <td>Username: </td>
                     <td>
                         <input type='text' id='username' size='30'>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Expiration Date: </td>
-                    <td>
-                        <input type='date' id='expiration'>
                     </td>
                 </tr>
                 <!-- address input for destination -->
