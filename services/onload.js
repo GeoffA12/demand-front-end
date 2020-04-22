@@ -47,7 +47,7 @@ function useLongLats(long, lat) {
 
 
 
-const type = "Dry_Cleaning";
+const type = "DryCleaning";
 
 let clickedOnSubmitOrder = () => {
   // console.log(lat);
@@ -84,7 +84,7 @@ let clickedOnSubmitOrder = () => {
             mode: 'no-cors',
             body: JSON.stringify(order)
       }
-      fetch("https://demand.team22.softwareengineeringii.com/orderHandler", options).then(function(response) {
+      fetch("https://demand.team22.softwareengineeringii.com/demand/order/req", options).then(function(response) {
             console.log(response.status);
             if (response.status == 200) {
                 window.location.assign("https://demand.team22.softwareengineeringii.com/demand-front-end/services/confirmation.html");
