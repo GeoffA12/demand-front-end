@@ -50,12 +50,12 @@ if (!navigator.geolocation) {
 }
 const type = "DryCleaning";
 
-$(document).on('submit', 'form', async function(e) {
+$(document).on('submit', 'form', async function (e) {
     e.preventDefault();
     console.log(this);
     // let that = this;
     let formInputs = []
-    $('form input').each(function() {
+    $('form input').each(function () {
         console.log(this.value);
         formInputs.push(this.value);
     })
@@ -97,15 +97,17 @@ $(document).on('submit', 'form', async function(e) {
             mode: 'no-cors',
             body: JSON.stringify(order)
         }).then(res => {
-            // console.log(res.status);
-            if (res.status == 200) {
-                alert(res.json());
-                localStorage.setItem('orderinfo', res.json());
-                window.location.assign("https://demand.team22.softwareengineeringii.com/demand-front-end/services/confirmation.html");
-            }
-            else {
-                alert('Something went wrong');
-            }
+            res.json().then(json => {
+                // console.log(res.status);
+                if (res.status == 200) {
+                    alert(json);
+                    localStorage.setItem('orderinfo', json);
+                    window.location.assign("https://demand.team22.softwareengineeringii.com/demand-front-end/services/confirmation.html");
+                }
+                else {
+                    alert('Something went wrong');
+                }
+            })
         }).catch(function (error) {
             console.error(error)
         });
