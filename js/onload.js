@@ -59,16 +59,16 @@ $(document).on('submit', 'form', async function(e) {
         console.log(this.value);
         formInputs.push(this.value);
     })
-    console.log(formInputs);
+    // console.log(formInputs);
     [cardnumber, exipre, cvv] = formInputs;
-    console.log(cardnumber, exipre, cvv);
-    console.log(humanReadable);
+    // console.log(cardnumber, exipre, cvv);
+    // console.log(humanReadable);
     let check = []
     formInputs.forEach(e => {
         check.push(e.includes('_'));
         check.push(e.length == 0);
     })
-    console.log(check)
+    // console.log(check)
     valid = !check.includes(true) && humanReadable != null;
     if (valid) {
         let dateAdded = new Date(Date.now())
@@ -85,22 +85,25 @@ $(document).on('submit', 'form', async function(e) {
             },
             "timeOrderMade": dateAdded.toISOString()
         }
-        console.log(order)
-        const options = {
+        // console.log(order)
+
+        var url = "https://demand.team22.softwareengineeringii.com/demand/order/req";
+        await fetch(url, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             mode: 'no-cors',
             body: JSON.stringify(order)
-        }
-        fetch("https://demand.team22.softwareengineeringii.com/demand/order/req", options).then(function (response) {
-            console.log(response.status);
-            if (response.status == 200) {
+        }).then(res => {
+            // console.log(res.status);
+            if (res.status == 200) {
+                alert(res.json());
+                localStorage.setItem('orderinfo', res.json());
                 window.location.assign("https://demand.team22.softwareengineeringii.com/demand-front-end/services/confirmation.html");
             }
             else {
-                alert("There is no username tied to that account!");
+                alert('Something went wrong');
             }
         }).catch(function (error) {
             console.error(error)
