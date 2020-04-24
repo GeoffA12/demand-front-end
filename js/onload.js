@@ -60,6 +60,7 @@ $(document).on('submit', 'form', async function(e) {
         formInputs.push(this.value);
     })
     // console.log(formInputs);
+    let cardnumber, exipre, cvv;
     [cardnumber, exipre, cvv] = formInputs;
     // console.log(cardnumber, exipre, cvv);
     // console.log(humanReadable);
