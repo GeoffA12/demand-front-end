@@ -101,7 +101,10 @@ $(document).on('submit', 'form', async function (e) {
                 // console.log(res.status);
                 if (res.status == 200) {
                     alert(json);
-                    localStorage.setItem('orderinfo', json);
+                    //Object.keys(json).forEach(e => {
+                    //    console.log(e, json[e])
+                    //});
+                    localStorage.setItem('orderinfo', JSON.stringify(json));
                     window.location.assign("https://demand.team22.softwareengineeringii.com/demand-front-end/services/confirmation.html");
                 }
                 else {
