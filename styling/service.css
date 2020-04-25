@@ -1,0 +1,35 @@
+img {
+    height: 100px;
+}
+
+div.rounded-circle {
+    margin: 10px;
+}
+#map {
+    display: block;
+    width: 100%;
+    height: 70vh;
+    padding: 0px 3vw 0px 3vw
+}
+
+.geocoder {
+    position: block;
+    z-index: 1;
+    width: 100%;
+}
+
+.mapboxgl-ctrl-geocoder {
+    min-width: 100%;
+}
+
+/* #map {
+    position: block;
+    top: 0;
+    bottom: 0;
+    width: 75vw;
+} */
+
+#geocoder>div {
+    min-width: 100%;
+    /* margin-left: 25% */
+}
