@@ -27,7 +27,7 @@
 
     <!-- Site Wide Scripts -->
     <script src="/common-services/js/redirect.js"></script>
-    <script src="/common-services/js/checksession.js"></script>
+    <!-- <script src="/common-services/js/checksession.js"></script> -->
     <script src="/common-services/js/setuser.js"></script>
 
     <!-- Site Wide Style -->
@@ -37,11 +37,21 @@
 <!-- END    ALWAYS GOES IN THE HEAD OF EVERY HTML PAGE -->
 
     <script>
-        console.log(JSON.parse(localStorage.getItem('orderinfo')));
+        let getVehicleInfo = () => {
+            let courier = JSON.parse(localStorage.getItem('orderinfo'));
+            console.log(courier);
+            document.getElementById('licenseplate').innerHTML = courier['licensePlate']
+            make = courier['make'];
+            make = make.charAt(0).toUpperCase() + make.slice(1);
+            model = courier['model'];
+            model = model.charAt(0).toUpperCase() + model.slice(1);
+            document.getElementById('vehicletype').innerHTML = `${make} ${model}`;
+            document.getElementById('eta').innerHTML = `${courier['eta']} minutes`;
+        }
     </script>
     <title>WeGo Services</title>
 </head>
-<body onload="onload()">
+<body onload="onload(); getVehicleInfo()">
     <header id="appHeader" class="navbar sticky-top justify-content-between shadow py-3">
         <div>
             <a class="navbar-brand" style="cursor: pointer;" href="/">
@@ -309,9 +319,19 @@
     <main style="margin: 5vh 0 5vh 0; height: 72.5vh;">
         <div class="container">
             <h2> Order Confirmation Information </h2>
-            <br>
-            <p> Congratulations! Your order submission has been sent. </p>
-            <p> Thank you for using WeGo Services! </p>
+            <span> Congratulations! Your Order is now being fulfilled!</span>
+            <h3>Infomation about the vehicle carrying out your order</h3>
+
+            <label for="licenseplate">License plate: </label>
+            <span id="licenseplate"></span><br>
+
+            <label for="vehicletype">Vehicle type: </label>
+            <span id="vehicletype"></span><br>
+
+            <label for="eta">Estimated time of arrival: </label>
+            <span id="eta"></span><br>
+
+            <a href="https://demand.team22.softwareengineeringii.com/demand-front-end/dashboard/dashboard.html">Return to dashboard</a>
             <br>
         </div>
     </main>
