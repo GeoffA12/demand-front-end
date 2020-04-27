@@ -7,8 +7,7 @@ var user = localStorage.getItem('username');
 function success(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-    // console.log(latitude);
-    // console.log(longitude);
+    
     mapboxgl.accessToken = 'pk.eyJ1IjoiZGFwaG5lZG9tYW5zaSIsImEiOiJjazh3YWN5bzMwa2dwM2VsZG5qNjh3c2szIn0.0ymDG-rTv4fEJdNP6V5Dqg';
     var map = new mapboxgl.Map({
         container: 'map',
@@ -22,7 +21,6 @@ function success(position) {
         mapboxgl: mapboxgl
     });
 
-    //map.addControl(geocoder);
     document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
     map.on('load', function () {
@@ -30,7 +28,6 @@ function success(position) {
         // makes a selection
         geocoder.on('result', function (ev) {
             var addressResult = ev.result;
-            // console.log(addressResult.place_name)
             humanReadable = addressResult.place_name;
             lon = addressResult.center[0]
             lat = addressResult.center[1]
@@ -39,13 +36,12 @@ function success(position) {
 }
 
 function error() {
-    // console.log('Unable to retrieve your location');
+    alert('Unable to retrieve your location');
 }
 
 if (!navigator.geolocation) {
-    // console.log('Geolocation is not supported by your browser');
+    alert('Geolocation is not supported by your browser');
 } else {
-    // console.log('Locating…');
     navigator.geolocation.getCurrentPosition(success, error);
 }
 const type = "DryCleaning";
@@ -59,17 +55,16 @@ $(document).on('submit', 'form', async function (e) {
         console.log(this.value);
         formInputs.push(this.value);
     })
-    // console.log(formInputs);
+
     let cardnumber, exipre, cvv;
     [cardnumber, exipre, cvv] = formInputs;
-    // console.log(cardnumber, exipre, cvv);
-    // console.log(humanReadable);
+    
     let check = []
     formInputs.forEach(e => {
         check.push(e.includes('_'));
         check.push(e.length == 0);
     })
-    // console.log(check)
+
     valid = !check.includes(true) && humanReadable != null;
     if (valid) {
         let dateAdded = new Date(Date.now())
@@ -86,7 +81,6 @@ $(document).on('submit', 'form', async function (e) {
             },
             "timeOrderMade": dateAdded.toISOString()
         }
-        // console.log(order)
 
         var url = "https://demand.team22.softwareengineeringii.com/demand/order/req";
         await fetch(url, {
@@ -98,12 +92,7 @@ $(document).on('submit', 'form', async function (e) {
             body: JSON.stringify(order)
         }).then(res => {
             res.json().then(json => {
-                // console.log(res.status);
                 if (res.status == 200) {
-                    alert(json);
-                    //Object.keys(json).forEach(e => {
-                    //    console.log(e, json[e])
-                    //});
                     localStorage.setItem('orderinfo', JSON.stringify(json));
                     window.location.assign("https://demand.team22.softwareengineeringii.com/demand-front-end/services/confirmation.html");
                 }
