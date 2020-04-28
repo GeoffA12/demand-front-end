@@ -36,7 +36,33 @@ function success(position) {
 }
 
 function error() {
-    alert('Unable to retrieve your location');
+    alert('Unable to retrieve your location. The map will center on St. Edwards\' Univeristy');
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGFwaG5lZG9tYW5zaSIsImEiOiJjazh3YWN5bzMwa2dwM2VsZG5qNjh3c2szIn0.0ymDG-rTv4fEJdNP6V5Dqg';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-97.7553, 30.2264],
+        zoom: 13
+    });
+
+    var geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+    });
+
+    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+    map.on('load', function () {
+        // listen for the `geocoder.input` event that is triggered when a user
+        // makes a selection
+        geocoder.on('result', function (ev) {
+            var addressResult = ev.result;
+            humanReadable = addressResult.place_name;
+            lon = addressResult.center[0]
+            lat = addressResult.center[1]
+        });
+    });
+
 }
 
 if (!navigator.geolocation) {
@@ -48,7 +74,7 @@ const type = "DryCleaning";
 
 $(document).on('submit', 'form', async function (e) {
     e.preventDefault();
-    console.log(this);
+    // console.log(this);
     // let that = this;
     let formInputs = []
     $('form input').each(function () {
